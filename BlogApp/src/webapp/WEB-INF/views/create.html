@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tạo bài viết mới</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1>✏️ Viết bài blog mới</h1>
+<form th:action="@{/save}" th:object="${blog}" method="post">
+    <label>Tiêu đề:</label>
+    <input type="text" th:field="*{title}" required/>
+    <label>Nội dung:</label>
+    <textarea th:field="*{content}" rows="10" required></textarea>
+    <button type="submit">Lưu</button>
+</form>
+<a href="/">← Quay lại</a>
+</body>
+</html>

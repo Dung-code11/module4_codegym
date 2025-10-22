@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Uploaded Songs</title>
+</head>
+<body>
+<h2>Uploaded Songs</h2>
+
+<a th:href="@{/upload}">Upload New Song</a>
+
+<table border="1" cellpadding="5">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Genre</th>
+        <th>File Path</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="s : ${songs}">
+        <td th:text="${s.title}"></td>
+        <td th:text="${s.artist}"></td>
+        <td th:text="${s.genre}"></td>
+        <td><a th:href="@{/${s.filePath}}" th:text="${s.filePath}"></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thông tin tờ khai</title>
+</head>
+<body>
+<h2>Thông tin tờ khai đã gửi</h2>
+
+<p>Họ tên: <span th:text="${healthDeclaration.fullName}"></span></p>
+<p>Năm sinh: <span th:text="${healthDeclaration.yearOfBirth}"></span></p>
+<p>Giới tính: <span th:text="${healthDeclaration.gender}"></span></p>
+<p>Quốc tịch: <span th:text="${healthDeclaration.nationality}"></span></p>
+<p>CMND/Hộ chiếu: <span th:text="${healthDeclaration.identityNumber}"></span></p>
+<p>Điện thoại: <span th:text="${healthDeclaration.phone}"></span></p>
+<p>Email: <span th:text="${healthDeclaration.email}"></span></p>
+
+<a th:href="@{/edit}">Sửa thông tin</a>
+</body>
+</html>

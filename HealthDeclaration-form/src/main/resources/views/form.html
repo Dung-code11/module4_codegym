@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tờ khai y tế</title>
+</head>
+<body>
+<h2>Tờ khai y tế</h2>
+
+<form th:action="@{/form}" th:object="${healthDeclaration}" method="post">
+    <div>
+        <label>Họ tên (*)</label>
+        <input type="text" th:field="*{fullName}" />
+        <span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
+    </div>
+
+    <div>
+        <label>Năm sinh (*)</label>
+        <input type="number" th:field="*{yearOfBirth}" />
+        <span th:errors="*{yearOfBirth}"></span>
+    </div>
+
+    <div>
+        <label>Giới tính (*)</label>
+        <select th:field="*{gender}">
+            <option value="">--Chọn--</option>
+            <option>Nam</option>
+            <option>Nữ</option>
+            <option>Khác</option>
+        </select>
+        <span th:errors="*{gender}"></span>
+    </div>
+
+    <div>
+        <label>Quốc tịch (*)</label>
+        <input type="text" th:field="*{nationality}" />
+        <span th:errors="*{nationality}"></span>
+    </div>
+
+    <div>
+        <label>CMND/Hộ chiếu (*)</label>
+        <input type="text" th:field="*{identityNumber}" />
+        <span th:errors="*{identityNumber}"></span>
+    </div>
+
+    <!-- Ví dụ thêm các trường khác tương tự -->
+    <div>
+        <label>Điện thoại (*)</label>
+        <input type="text" th:field="*{phone}" />
+        <span th:errors="*{phone}"></span>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input type="text" th:field="*{email}" />
+        <span th:errors="*{email}"></span>
+    </div>
+
+    <h4>Triệu chứng trong 14 ngày qua</h4>
+    <label><input type="checkbox" th:field="*{fever}" /> Sốt</label>
+    <label><input type="checkbox" th:field="*{cough}" /> Ho</label>
+    <label><input type="checkbox" th:field="*{difficultyBreathing}" /> Khó thở</label>
+
+    <h4>Lịch sử phơi nhiễm</h4>
+    <label><input type="checkbox" th:field="*{contactAnimals}" /> Tiếp xúc động vật</label>
+    <label><input type="checkbox" th:field="*{closeContactPatient}" /> Gần người bệnh</label>
+
+    <div>
+        <button type="submit">Gửi tờ khai</button>
+    </div>
+</form>
+</body>
+</html>

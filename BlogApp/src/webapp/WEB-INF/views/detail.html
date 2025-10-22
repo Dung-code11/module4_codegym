@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chi tiết bài viết</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1 th:text="${blog.title}"></h1>
+<p><i th:text="${#temporals.format(blog.createdAt, 'dd/MM/yyyy HH:mm')}"></i></p>
+<p th:text="${blog.content}"></p>
+<a href="/">← Quay lại</a>
+</body>
+</html>
